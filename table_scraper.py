@@ -14,4 +14,4 @@ all_tables = content.find_all("table", class_="wikitable sortable")
 
 df = pd.read_html(str(all_tables))
 
-print(df)
+print(df[-1])
