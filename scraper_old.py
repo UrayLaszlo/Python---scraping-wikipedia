@@ -14,7 +14,7 @@ content = BeautifulSoup(response.text, 'lxml')
 teams = [team.text for team in content.find_all('dt')]
 
 # Get team owners
-owners = [owner.text for owner in content.find_all('a')]
+owners = [owner.text for owner in content.find_all('a') if owner.text.isalpha()]
 
 #for owner in owners:
 for owner in owners:
