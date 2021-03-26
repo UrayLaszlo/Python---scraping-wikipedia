@@ -10,8 +10,12 @@ page = requests.get(url)
 content = BeautifulSoup(page.text, "html.parser")
 
 page_title = content.title.text[:content.title.text.find("-")]
-all_tables = content.find_all("table", class_="wikitable sortable")
+table = content.find("table", class_="wikitable sortable")
 
-df = pd.read_html(str(all_tables))
+d = pd.read_html(str(table))
 
-print(df[-1])
+df = d[0]
+
+print(len(d))
+print(df.info())
+#print(table.text.strip())
