@@ -14,13 +14,13 @@ page_title = content.title.text[:content.title.text.find("-")]
 table = content.find("table", class_="wikitable sortable")
 
 df = pd.read_html(str(table))
-
+'''
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    passwd="Lacim_77"
+    passwd="seal"
 )
-
+'''
 print(df)
 #print(df.info())
 print(table.text)
