@@ -11,13 +11,13 @@ page = requests.get(url)
 content = BeautifulSoup(page.text, "html.parser")
 
 page_title = content.title.text[:content.title.text.find("-")]
-print(page_title)
+#print(page_title)
 
 table = content.find("table", class_="wikitable sortable")
-print(table.text)
+#print(table.text)
 
 headers = [h.text for h in table.find_all('th')]
-print(headers)
+#print(headers)
 
 df = pd.read_html(str(table))
 print(df)
