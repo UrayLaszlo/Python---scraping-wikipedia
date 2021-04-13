@@ -11,15 +11,20 @@ page = requests.get(url)
 content = BeautifulSoup(page.text, "html.parser")
 
 page_title = content.title.text[:content.title.text.find("-")]
+print(page_title)
+
 table = content.find("table", class_="wikitable sortable")
+print(table.text)
+
+headers = [h.text for h in table.find_all('th')]
+print(headers)
 
 df = pd.read_html(str(table))
+print(df)
 
 
-rows = table.find_all('tr')
-print(rows)
+#rows = table.find_all('tr').text
 
-#print(df)
 #print(df.info())
 #print(table.text)
 
