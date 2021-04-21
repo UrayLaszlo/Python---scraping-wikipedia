@@ -19,16 +19,21 @@ page_title = content.title.text[:content.title.text.find("-")]
 table = content.find("table", class_="wikitable sortable")
 #print(table.text)
 # Save in Pandas dataframe?
-#df = pd.read_html(str(table))
-#print(df)
 
+df = pd.read_html(str(table))
+print(df)
+df = pd.DataFrame(df[0])
+print(df)
+
+
+'''
 for team in table.find_all('tbody'):
-    rows = team.find_all('tr')
+    rows = team.find_all('a')
     for row in rows:
-        nfl_team = row.find('td', class_="reference").text
-        print(nfl_team)
-
-#print(table)
+        #print(row.text.strip())
+        #nfl_teams = row.get("title")
+        print(row.get('title'))
+'''
 
 #headers = [h.text for h in table.find_all('th')]
 #print(headers)
